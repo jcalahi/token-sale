@@ -1,5 +1,5 @@
 {
-  "watch": ["src"],
+  "watch": ["src", "input.txt"],
   "ext": "ts",
   "exec": "ts-node ./src/app.ts < input.txt"
 }
