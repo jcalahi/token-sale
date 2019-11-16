@@ -4,10 +4,9 @@
   "description": "A JavaScript exercise of multi-currency token sale",
   "main": "app.js",
   "scripts": {
-    "test": "cross-env TS_NODE_FILES=true mocha --exit --require ts-node/register --colors src/**.spec.ts",
+    "test": "nyc cross-env TS_NODE_FILES=true mocha --exit --require ts-node/register --colors src/**.spec.ts",
     "build": "tsc",
-    "start": "nodemon",
-    "coverage": "nyc npm run test"
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
