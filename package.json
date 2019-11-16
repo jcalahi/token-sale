@@ -1,0 +1,26 @@
+{
+  "name": "token-sale",
+  "version": "1.0.0",
+  "description": "A JavaScript exercise of multi-currency token sale",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jcalahi/token-sale.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jcalahi/token-sale/issues"
+  },
+  "homepage": "https://github.com/jcalahi/token-sale#readme",
+  "devDependencies": {
+    "@types/node": "^12.12.8",
+    "ts-node": "^8.5.2",
+    "typescript": "^3.7.2"
+  }
+}
