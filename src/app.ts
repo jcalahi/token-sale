@@ -10,24 +10,30 @@ const rl = readline.createInterface({
 });
 
 let counter = 0;
-let currencies = [];
+let currencyList = [];
 let currencyRate: CryptoCurrency;
 
 rl.on('line', (line) => {
   counter++;
   if (counter === 1) {
-    currencies = line.split(' ');
+    currencyList = line.split(' ');
     currencyRate = {
-      BTC: new BigNumber(currencies[0]),
-      ETH: new BigNumber(currencies[1]),
-      DOGE: new BigNumber(currencies[2])
+      BTC: new BigNumber(currencyList[0]),
+      ETH: new BigNumber(currencyList[1]),
+      DOGE: new BigNumber(currencyList[2])
     };
   } else {
-    const lineItems = line.split(' ');
-    let x = new BigNumber(lineItems[0]);
-    let y = new BigNumber(lineItems[3]);
-    let decimalPlaces = parseInt(lineItems[1]);
-    let initial = x.multipliedBy(y).multipliedBy(currencyRate[lineItems[2]]).dividedBy(currencyRate.ETH);
-    console.log(initial.toFixed(decimalPlaces));
+    const lineValues = line.split(' ');
+    const saleRate = new BigNumber(lineValues[0]);
+    const purchaseAmount = new BigNumber(lineValues[3]);
+    const decimalPlaces = parseInt(lineValues[1]);
+    const purchaseCurrency = lineValues[2];
+
+    const saleAmount = saleRate
+      .multipliedBy(purchaseAmount)
+      .multipliedBy(currencyRate[purchaseCurrency])
+      .dividedBy(currencyRate.ETH);
+
+    console.log(saleAmount.toFixed(decimalPlaces));
   }
 });
